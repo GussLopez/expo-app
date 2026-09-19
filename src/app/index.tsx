@@ -1,12 +1,13 @@
 import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
+import { Platform, Pressable, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { HintRow } from '@/components/hint-row';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { WebBadge } from '@/components/web-badge';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+import { Image } from 'expo-image';
+import { Link } from 'expo-router';
 
 function getDevMenuHint() {
   if (Platform.OS === 'web') {
@@ -33,25 +34,50 @@ export default function HomeScreen() {
       <SafeAreaView style={styles.safeArea}>
         <ThemedView style={styles.heroSection}>
           <ThemedText type="title" style={styles.title}>
-           Rick and Morty
+            Rick and Morty
           </ThemedText>
         </ThemedView>
 
         <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
-          />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
-          />
+          <ThemedView style={styles.card}>
+            <ThemedView type="backgroundElement">
+              <Link href="/characters" asChild>
+                <Pressable style={styles.card}>
+                  <ThemedText style={styles.cardTitle}>
+                    Personajes
+                  </ThemedText>
+
+                  <Image
+                    source={require('@/assets/images/characters.png')}
+                    style={styles.image}
+                    contentFit="cover"
+                  />
+                </Pressable>
+              </Link>
+            </ThemedView>
+          </ThemedView>
+          <ThemedView style={styles.card}>
+            <ThemedView type="backgroundElement">
+              <Link href="/locations" asChild>
+                <Pressable style={styles.card}>
+                  <ThemedText style={styles.cardTitle}>
+                    Ubicaciones
+                  </ThemedText>
+
+                  <Image
+                    source={require('@/assets/images/locations.png')}
+                    style={styles.image}
+                    contentFit="cover"
+                  />
+                </Pressable>
+              </Link>
+            </ThemedView>
+          </ThemedView>
         </ThemedView>
 
         {Platform.OS === 'web' && <WebBadge />}
-      </SafeAreaView>
-    </ThemedView>
+      </SafeAreaView >
+    </ThemedView >
   );
 }
 
@@ -71,19 +97,37 @@ const styles = StyleSheet.create({
   },
   heroSection: {
     alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
+    flexShrink: 0,
+    paddingTop: Spacing.six,
   },
   title: {
     textAlign: 'center',
+    marginBottom: 14
   },
   stepContainer: {
+    width: '100%',
     gap: Spacing.three,
-    alignSelf: 'stretch',
     paddingHorizontal: Spacing.three,
     paddingVertical: Spacing.four,
     borderRadius: Spacing.four,
+  },
+  card: {
+    width: '100%',
+    maxWidth: 500,
+    alignSelf: 'center',
+    flexDirection: 'column',
+    alignItems: 'stretch',
+  },
+  cardTitle: {
+    fontSize: 30,
+    fontWeight: 500,
+    textAlign: 'center',
+    paddingVertical: 15
+  },
+  image: {
+    width: '100%',
+    aspectRatio: 296 / 171,
+    borderRadius: Spacing.three,
+    marginTop: Spacing.two,
   },
 });
