@@ -33,7 +33,7 @@ export default function HomeScreen() {
       <SafeAreaView style={styles.safeArea}>
         <ThemedView style={styles.heroSection}>
           <ThemedText type="title" style={styles.title}>
-            Game Zelda
+           Rick and Morty
           </ThemedText>
         </ThemedView>
 
