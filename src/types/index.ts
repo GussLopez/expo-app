@@ -20,3 +20,12 @@ export type Location = {
   dimension: string;
   residents: string[];
 };
+
+export type Episode = {
+  id: number;
+  name: string;
+  air_date: string;
+  episode: string;
+  url: string;
+  created: string;
+};

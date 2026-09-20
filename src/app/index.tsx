@@ -1,5 +1,5 @@
 import * as Device from 'expo-device';
-import { Platform, Pressable, StyleSheet } from 'react-native';
+import { Platform, Pressable, ScrollView, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/themed-text';
@@ -39,40 +39,62 @@ export default function HomeScreen() {
         </ThemedView>
 
         <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <ThemedView style={styles.card}>
-            <ThemedView type="backgroundElement">
-              <Link href="/characters" asChild>
-                <Pressable style={styles.card}>
-                  <ThemedText style={styles.cardTitle}>
-                    Personajes
-                  </ThemedText>
+          <ScrollView
+            style={styles.scroll}
+            contentContainerStyle={styles.scrollContent}
+          >
+            <ThemedView style={styles.card}>
+              <ThemedView type="backgroundElement">
+                <Link href="/characters" asChild>
+                  <Pressable style={styles.card}>
+                    <ThemedText style={styles.cardTitle}>
+                      Personajes
+                    </ThemedText>
 
-                  <Image
-                    source={require('@/assets/images/characters.png')}
-                    style={styles.image}
-                    contentFit="cover"
-                  />
-                </Pressable>
-              </Link>
+                    <Image
+                      source={require('@/assets/images/characters.png')}
+                      style={styles.image}
+                      contentFit="cover"
+                    />
+                  </Pressable>
+                </Link>
+              </ThemedView>
             </ThemedView>
-          </ThemedView>
-          <ThemedView style={styles.card}>
-            <ThemedView type="backgroundElement">
-              <Link href="/locations" asChild>
-                <Pressable style={styles.card}>
-                  <ThemedText style={styles.cardTitle}>
-                    Ubicaciones
-                  </ThemedText>
+            <ThemedView style={styles.card}>
+              <ThemedView type="backgroundElement">
+                <Link href="/locations" asChild>
+                  <Pressable style={styles.card}>
+                    <ThemedText style={styles.cardTitle}>
+                      Ubicaciones
+                    </ThemedText>
 
-                  <Image
-                    source={require('@/assets/images/locations.png')}
-                    style={styles.image}
-                    contentFit="cover"
-                  />
-                </Pressable>
-              </Link>
+                    <Image
+                      source={require('@/assets/images/locations.png')}
+                      style={styles.image}
+                      contentFit="cover"
+                    />
+                  </Pressable>
+                </Link>
+              </ThemedView>
             </ThemedView>
-          </ThemedView>
+            <ThemedView style={styles.card}>
+              <ThemedView type="backgroundElement">
+                <Link href="/episodes" asChild>
+                  <Pressable style={styles.card}>
+                    <ThemedText style={styles.cardTitle}>
+                      Episodios
+                    </ThemedText>
+
+                    <Image
+                      source={require('@/assets/images/episodes.jpg')}
+                      style={styles.image}
+                      contentFit="cover"
+                    />
+                  </Pressable>
+                </Link>
+              </ThemedView>
+            </ThemedView>
+          </ScrollView>
         </ThemedView>
 
         {Platform.OS === 'web' && <WebBadge />}
@@ -105,11 +127,18 @@ const styles = StyleSheet.create({
     marginBottom: 14
   },
   stepContainer: {
+    flex: 1,
     width: '100%',
+    borderRadius: Spacing.four,
+    overflow: 'hidden',
+  },
+  scroll: {
+    flex: 1,
+  },
+  scrollContent: {
     gap: Spacing.three,
     paddingHorizontal: Spacing.three,
     paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
   },
   card: {
     width: '100%',

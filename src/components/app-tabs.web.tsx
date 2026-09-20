@@ -30,6 +30,9 @@ export default function AppTabs() {
           <TabTrigger name="locations" href="/locations" asChild>
             <TabButton>Ubicaciones</TabButton>
           </TabTrigger>
+          <TabTrigger name="episodes" href="/episodes" asChild>
+            <TabButton>Episodios</TabButton>
+          </TabTrigger>
         </CustomTabList>
       </TabList>
     </Tabs>
