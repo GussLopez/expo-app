@@ -19,16 +19,15 @@ export default function AppTabs() {
           renderingMode="template"
         />
       </NativeTabs.Trigger>
-
-      <NativeTabs.Trigger name="explore">
-        <NativeTabs.Trigger.Label>Explora</NativeTabs.Trigger.Label>
+      <NativeTabs.Trigger name="characters">
+        <NativeTabs.Trigger.Label>Personajes</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon
           src={require('@/assets/images/tabIcons/explore.png')}
           renderingMode="template"
         />
       </NativeTabs.Trigger>
-      <NativeTabs.Trigger name="characters">
-        <NativeTabs.Trigger.Label>Personajes</NativeTabs.Trigger.Label>
+      <NativeTabs.Trigger name="locations">
+        <NativeTabs.Trigger.Label>Ubicaciones</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon
           src={require('@/assets/images/tabIcons/explore.png')}
           renderingMode="template"
