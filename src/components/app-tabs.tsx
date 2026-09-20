@@ -22,21 +22,21 @@ export default function AppTabs() {
       <NativeTabs.Trigger name="characters">
         <NativeTabs.Trigger.Label>Personajes</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon
-          src={require('@/assets/images/tabIcons/explore.png')}
+          src={require('@/assets/images/tabIcons/person.png')}
           renderingMode="template"
         />
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="locations">
         <NativeTabs.Trigger.Label>Ubicaciones</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon
-          src={require('@/assets/images/tabIcons/explore.png')}
+          src={require('@/assets/images/tabIcons/earth.png')}
           renderingMode="template"
         />
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="episodes">
         <NativeTabs.Trigger.Label>Episodios</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon
-          src={require('@/assets/images/tabIcons/explore.png')}
+          src={require('@/assets/images/tabIcons/bookmark.png')}
           renderingMode="template"
         />
       </NativeTabs.Trigger>
