@@ -3,7 +3,7 @@ import { ThemedView } from "@/components/themed-view";
 import { BottomTabInset, MaxContentWidth, Spacing } from "@/constants/theme";
 import { ApiInfo, Location } from "@/types";
 import { useEffect, useState } from "react";
-import { FlatList, StyleSheet } from "react-native";
+import { Button, FlatList, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function LocationsPage() {
@@ -84,6 +84,26 @@ export default function LocationsPage() {
               </ThemedView>
             )}
 
+          />
+        </ThemedView>
+        <ThemedView style={styles.footerButtons}>
+          <Button
+            title="Atras"
+            disabled={loading || !apiInfo?.prev}
+            onPress={() => {
+              if (apiInfo?.prev) {
+                setPageUrl(apiInfo.prev);
+              }
+            }}
+          />
+          <Button
+            title="Siguiente"
+            disabled={loading || !apiInfo?.next}
+            onPress={() => {
+              if (apiInfo?.next) {
+                setPageUrl(apiInfo.next);
+              }
+            }}
           />
         </ThemedView>
       </SafeAreaView>
